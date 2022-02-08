@@ -1,0 +1,217 @@
+@import 'https://unpkg.com/open-props';
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: #212121;
+  color: #fff;
+}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  background: #212121;
+  padding: 0.5em 0;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+}
+
+.pad {
+  padding: 1em;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.center-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+  color: #fff;
+}
+
+.container-grid {
+  height: 75vh;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  max-width: 540px;
+  flex: 1;
+  font-size: 0.8em;
+}
+
+.card-body {
+  color: #212121;
+  padding: 0;
+}
+
+/* Hamburger menu styles taken from https://codepen.io/alvarotrigo/pen/MWEJEWG under the MIT license */
+.nav__link,
+li a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-left: 2rem;
+  font-weight: 700;
+  width: auto;
+}
+
+.nav__btn {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: auto;
+}
+
+.nav__link:hover,
+.nav__btn:hover {
+  color: #0d6efd;
+}
+
+#menu-input {
+  display: none;
+}
+
+.top-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  height: 50px;
+  padding: 1em;
+}
+
+.top-nav h2 {
+  vertical-align: center;
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu > li {
+  margin: 0 1rem;
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+.menu-button::before {
+  content: "";
+  margin-top: -8px;
+}
+
+.menu-button::after {
+  content: "";
+  margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: var(--pink-1);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+@media (max-width: 810px) {
+  .menu-button-container {
+    display: flex;
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 60px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    border: 2px solid #fff;
+    border-radius: var(--radius-4);
+    overflow: hidden;
+  }
+
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  #menu-toggle:checked ~ .menu li {
+    display: flex;
+    border: 1px solid #fff;
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .menu > li {
+    display: none;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: white;
+    background-color: #212121;
+  }
+
+  .menu > li:not(:last-child) {
+    border-bottom: 1px solid #fff;
+  }
+}/*# sourceMappingURL=styles.css.map */
